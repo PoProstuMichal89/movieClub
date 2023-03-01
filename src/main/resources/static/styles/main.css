@@ -95,24 +95,23 @@ i powinna zajmować większość dostępnej przestrzeni
         align-self: center;
         width: 960px;
     }
-
-    /*Jumbotron START*/
-    .jumbotron {
-        background-image: url("../img/pexels-tima-miroshnichenko-7991161(15).jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 2rem;
-        text-align: center;
-    }
-    .jumbotron-header {
-        font-size: 3rem;
-        margin: 1rem 0;
-    }
-    .jumbotron-description {
-        font-size: 1.2rem;
-    }
-    /*Jumbotron END*/
 }
+/*Jumbotron START*/
+.jumbotron {
+    background-image: url("../img/pexels-tima-miroshnichenko-7991161(15).jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    text-align: center;
+}
+.jumbotron-header {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+.jumbotron-description {
+    font-size: 1.2rem;
+}
+/*Jumbotron END*/
 /*Listing START*/
 /*Nagłówek*/
 .list-heading,
