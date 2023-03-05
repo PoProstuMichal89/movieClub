@@ -6,11 +6,15 @@ import jakarta.persistence.*;
 
 @Entity
 public class Movie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String originalTitle;
+    private String shortDescription;
+    private String description;
+    private String youtubeTrailerId;
     private Integer releaseYear;
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
@@ -39,6 +43,30 @@ public class Movie {
 
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getYoutubeTrailerId() {
+        return youtubeTrailerId;
+    }
+
+    public void setYoutubeTrailerId(String youtubeTrailerId) {
+        this.youtubeTrailerId = youtubeTrailerId;
     }
 
     public Integer getReleaseYear() {
