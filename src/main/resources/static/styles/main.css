@@ -255,3 +255,19 @@ i powinna zajmować większość dostępnej przestrzeni
 }
 /*Movie.html END*/
 
+
+/*error pages START*/
+.error-container {
+    margin: 32px auto;
+}
+.error-container > * {
+    display: block;
+    text-align: center;
+}
+.error-header,
+.error-icon {
+    font-size: 2rem;
+    margin: 16px 0;
+}
+/*error pages END*/
+
