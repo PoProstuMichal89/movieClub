@@ -315,5 +315,12 @@ textarea {
     border: none;
 }
 
+/*pasek z notyfikacjami*/
+.notification-bar {
+    text-align: center;
+    background-color: #ffc107;
+    padding: 8px 0;
+}
+
 /*GenreManagment Page STOP*/
 

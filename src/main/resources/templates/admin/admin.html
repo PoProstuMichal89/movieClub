@@ -9,6 +9,9 @@
 </head>
 <body>
 <main class="main-content" layout:fragment="content">
+    <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+        Belka z powiadomieniami
+    </p>
     <h2 class="list-heading">Panel administracyjny</h2>
     <ul class="list-border">
         <li><a href="#" th:href="@{/admin/dodaj-film}">Dodaj film</a></li>
