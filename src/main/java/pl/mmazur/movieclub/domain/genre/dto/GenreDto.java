@@ -12,6 +12,9 @@ public class GenreDto {
         this.description = description;
     }
 
+    public GenreDto() {
+    }
+
     public Long getId() {
         return id;
     }

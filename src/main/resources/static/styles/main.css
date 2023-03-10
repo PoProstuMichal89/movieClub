@@ -284,3 +284,36 @@ i powinna zajmować większość dostępnej przestrzeni
 }
 /*Genre Listing END*/
 
+
+/*GenreManagment Page START*/
+/*textarea domyślnie nie dziedziczy czcionki z body*/
+textarea {
+    font-family: inherit;
+}
+/*etykiety i inputy jeden pod drugim z odstępami po bokach*/
+.mc-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+/*odstępy między etykietami i inputami*/
+.mc-form > * {
+    margin-top: 8px;
+}
+/*większe inputy z paddingami*/
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button {
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+.mc-form > button {
+    margin-top: 16px;
+    background-color: white;
+    color: #ffc107;
+    border: none;
+}
+
+/*GenreManagment Page STOP*/
+

@@ -1,5 +1,6 @@
 package pl.mmazur.movieclub.domain.genre;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pl.mmazur.movieclub.domain.genre.dto.GenreDto;
 
@@ -30,5 +31,14 @@ public class GenreService {
 //    public List<GenreDto> findAllGenres(){
 //        return genreRepository.findAll().stream().map(GenreDtoMapper::map).toList();
 //    }
+
+    @Transactional
+    public void addGenre(GenreDto genre){
+        Genre genreToSave = new Genre();
+        genreToSave.setName(genre.getName());
+        genreToSave.setDescription(genre.getDescription());
+        genreRepository.save(genreToSave);
+    }
+
 
 }
