@@ -303,7 +303,8 @@ textarea {
 /*większe inputy z paddingami*/
 .mc-form > input,
 .mc-form > textarea,
-.mc-form > button {
+.mc-form > button,
+.mc-form > select {
     font-size: 1.2rem;
     color: black;
     padding: 8px;
@@ -322,5 +323,18 @@ textarea {
     padding: 8px 0;
 }
 
+/*Większy checkbox*/
+.mc-form > input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 5px;
+}
+
+/*Biały kolor tekstu przy wyborze pliku*/
+.mc-form > input[type=file] {
+    color: white;
+}
+
 /*GenreManagment Page STOP*/
+
+
 

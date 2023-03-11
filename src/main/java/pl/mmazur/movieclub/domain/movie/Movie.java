@@ -1,7 +1,6 @@
 package pl.mmazur.movieclub.domain.movie;
-
-import jakarta.persistence.Entity;
 import pl.mmazur.movieclub.domain.genre.Genre;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +19,7 @@ public class Movie {
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
     private boolean promoted;
+    private String poster;
 
     public Long getId() {
         return id;
@@ -91,5 +91,13 @@ public class Movie {
 
     public void setPromoted(boolean promoted) {
         this.promoted = promoted;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 }

@@ -16,6 +16,7 @@
             <column name="description" type="VARCHAR(10000)"/>
             <column name="youtube_trailer_id" type="VARCHAR(20)"/>
             <column name="promoted" type="BOOLEAN"/>
+            <column name="poster" type="VARCHAR(100)"/>
             <column name="genre_id" type="BIGINT">
                 <constraints nullable="false"
                              foreignKeyName="fk_movie_genre"
