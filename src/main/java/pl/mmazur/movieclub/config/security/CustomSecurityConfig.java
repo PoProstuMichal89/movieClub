@@ -29,6 +29,8 @@ public class CustomSecurityConfig {
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
                         .logoutSuccessUrl("/login?logout").permitAll()
                 );
+        http.csrf().ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"));
+        http.headers().frameOptions().sameOrigin();
         return http.build();
     }
 
