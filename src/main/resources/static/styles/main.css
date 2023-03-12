@@ -336,5 +336,13 @@ textarea {
 
 /*GenreManagment Page STOP*/
 
+/*Formularz logowania START*/
+
+/*Tekst nad formularzem*/
+.mc-form-message {
+    color: #ffc107;
+    text-align: center;
+}
+
 
 
