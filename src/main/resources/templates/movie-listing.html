@@ -36,7 +36,9 @@
                     </div>
                     <div class="movie-list-item-rating">
                         <i class="fas fa-star"></i>
-                        <span>8.7</span>
+                        <!-- Zaokrąglamy ocenę do 1 miejsca przed i po przecinku -->
+                        <span th:if="${movie.ratingCount}" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">8.7</span>
+                        <span th:if="!${movie.ratingCount}">Brak ocen</span>
                     </div>
                 </div>
             </li>

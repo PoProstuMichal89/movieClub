@@ -2,6 +2,7 @@
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout}">
 <head>
   <!-- Ustawiamy tytuł -->
@@ -20,7 +21,7 @@
              th:alt="${movie.title}"
              class="movie-summary-cover"
         />
-<!--        th:src="${movie.poster ne null} ? @{|/img/${movie.poster}|} : @{/img/poster-placeholder.png}" - do uzupełnienia -->
+        <!--             th:src="${movie.poster ne null} ? @{|/img/${movie.poster}|} : @{/img/poster-placeholder.png}"-->
         <!-- informacje o filmie -->
         <div class="movie-summary-info">
           <!-- Ustawiamy tytuły, krótki opis, rok -->
@@ -40,23 +41,36 @@
       <!-- Ocena -->
       <div class="movie-rating-container movie-section">
         <h2 class="movie-section-heading">Ocena</h2>
-        <div>
-          <p class="movie-rating-value" th:text="${avgRating}">4.0</p>
-          <p style="text-align: center">Liczba ocen: 134</p>
+        <!-- Jeżeli nie oddano żadnego głosu -->
+        <p th:unless="${movie.ratingCount}">Brak głosów</p>
+        <!-- Jeżeli oddano głos -->
+        <div th:if="${movie.ratingCount}">
+          <!-- Zaokrąglamy ocenę do 1 miejsca przed i po przecinku -->
+          <p class="movie-rating-value" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">4.0</p>
+          <p th:text="|Liczba ocen: ${movie.ratingCount}|">Liczba ocen: 134</p>
         </div>
-        <form action="#" class="movie-rating-form">
+        <!-- Dodajemy th:action, formularz wyświetlamy tylko zalogowanemu użytkownikowi -->
+        <form action="#" th:action="@{/ocen-film}" method="post"
+              sec:authorize="isAuthenticated()"
+              class="movie-rating-form">
           <!-- Identyfikator filmu, na który głosujemy-->
           <p>Twoja ocena</p>
-          <input type="hidden" name="movieId">
+          <input type="hidden" name="movieId" th:value="${movie.id}">
           <div class="movie-rating-buttons">
-            <button class="movie-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="movie-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="movie-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="movie-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="movie-rating-button"><i class="fa-regular fa-star"></i></button>
+            <!-- Generujemy 5 gwiazdek w pętli -->
+            <button class="movie-rating-button"
+                    name="rating"
+                    th:each="i: ${#numbers.sequence(1, 5)}"
+                    th:value="${i}">
+              <!-- Pełną i pustą gwiazdkę rozróżniamy dodając odpowiednią klasę na podstawie głosu użytkownika -->
+              <i class="fa-star" th:classappend="${i <= userRating ? 'fa-solid' : 'fa-regular'}"></i>
+            </button>
           </div>
         </form>
-        <p><a href="#">Zaloguj się</a>, aby oddać głos</p>
+        <!-- Link do logowania wyświetlamy tylko wtedy, gdy użytkownik nie jest zalogowany -->
+        <p sec:authorize="!isAuthenticated()">
+          <a href="#" th:href="@{/login}">Zaloguj się</a>, aby oddać głos
+        </p>
       </div>
     </section>
     <!-- trailer -->
