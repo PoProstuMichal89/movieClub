@@ -11,8 +11,10 @@ public class BaseTest {
 //    protected SearchPage search;
     PlaywrightFactory play;
 
+
+    @BeforeTest
     @BeforeClass
-    public void setUp(String appURL, String browserType) {
+    public void setUp() {
         play = new PlaywrightFactory();
         page = play.getPage("http://localhost:8080/", "chrome");
         hp = new HomePage(page);
