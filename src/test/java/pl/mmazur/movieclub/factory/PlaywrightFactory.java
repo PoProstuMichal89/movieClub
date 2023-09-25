@@ -8,7 +8,7 @@ public class PlaywrightFactory {
     protected Page page;
     Browser browser;
     BrowserContext browserContext;
-    @Parameters({"appURL", "browserType"})
+
     public Page getPage(String appURL, String browserType) {
         playwright = Playwright.create();
         switch (browserType) {
