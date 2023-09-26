@@ -20,6 +20,7 @@ public class BaseTest {
         hp = new HomePage(page);
     }
 
+    @BeforeClass
     public void tearDown() {
         page.context().browser().close();
     }

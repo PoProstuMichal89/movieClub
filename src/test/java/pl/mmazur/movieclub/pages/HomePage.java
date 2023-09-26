@@ -6,7 +6,11 @@ public class HomePage {
     Page page;
 
     //String Locators
-    private String pageTitle = "text=Movie Club";
+    private final String loginLink = "text=Zaloguj się";
+    private final String genresLink = "text=Gatunki";
+    private final String top10Link = "text=Top10";
+    private String footerLocator = ".footer";
+
 
     //Constructor
     public HomePage(Page page) {
@@ -14,9 +18,27 @@ public class HomePage {
     }
 
     //page actions/methods
-    public String getHomePageTitle() {
+    public String getPageTitle() {
         String title = page.title();
         System.out.println("page title: "+ title);
         return title;
+    }
+
+    public void navigateToLoginPage() {
+        page.click(loginLink);
+    }
+
+    public void navigateToGenresPage() {
+        page.click(genresLink);
+    }
+
+    public void navigateToTop10Page() {
+        page.click(top10Link);
+    }
+
+    public String getFooterText() {
+        String footerText = page.innerText(footerLocator);
+        System.out.println("footer text: "+ footerText);
+        return footerText;
     }
 }
