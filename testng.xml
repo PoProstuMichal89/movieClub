@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <parameter name="appURL" value="http://localhost:8080/"/>
-    <parameter name="browserType" value="chrome"/>
-    <test thread-count="5" name="Test">
+
+    <test  name="HomePageTests">
+        <parameter name="appURL" value="http://localhost:8080/"/>
+        <parameter name="browserType" value="chrome"/>
         <classes>
             <class name="pl.mmazur.movieclub.testcases.HomePageTest"/>
         </classes>
     </test> <!-- Test -->
+
+    <test  name="LoginPageTests">
+        <parameter name="appURL" value="http://localhost:8080/login"/>
+        <parameter name="browserType" value="chrome"/>
+        <classes>
+            <class name="pl.mmazur.movieclub.testcases.LoginPageTests"/>
+        </classes>
+    </test>
+
 </suite> <!-- Suite -->

@@ -9,15 +9,15 @@ import pl.mmazur.movieclub.pages.LoginPage;
 public class BaseTest {
     protected Page page;
     protected HomePage hp;
-    protected LoginPage lp;
     PlaywrightFactory play;
 
 
+    @Parameters({"appURL", "browserType"})
     @BeforeTest
     @BeforeClass
-    public void setUp() {
+    public void setUp(String appURL, String browserType) {
         play = new PlaywrightFactory();
-        page = play.getPage("http://localhost:8080/", "chrome");
+        page = play.getPage(appURL, browserType);
         hp = new HomePage(page);
     }
 
