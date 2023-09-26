@@ -4,11 +4,12 @@ import com.microsoft.playwright.Page;
 import org.testng.annotations.*;
 import pl.mmazur.movieclub.factory.PlaywrightFactory;
 import pl.mmazur.movieclub.pages.HomePage;
+import pl.mmazur.movieclub.pages.LoginPage;
 
 public class BaseTest {
     protected Page page;
     protected HomePage hp;
-//    protected SearchPage search;
+    protected LoginPage lp;
     PlaywrightFactory play;
 
 
@@ -20,7 +21,7 @@ public class BaseTest {
         hp = new HomePage(page);
     }
 
-    @BeforeClass
+    @AfterClass
     public void tearDown() {
         page.context().browser().close();
     }
