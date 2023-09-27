@@ -9,6 +9,7 @@ import pl.mmazur.movieclub.pages.LoginPage;
 public class BaseTest {
     protected Page page;
     protected HomePage hp;
+    protected LoginPage lp;
     PlaywrightFactory play;
 
 
@@ -19,6 +20,7 @@ public class BaseTest {
         play = new PlaywrightFactory();
         page = play.getPage(appURL, browserType);
         hp = new HomePage(page);
+        lp = new LoginPage(page);
     }
 
     @AfterClass
