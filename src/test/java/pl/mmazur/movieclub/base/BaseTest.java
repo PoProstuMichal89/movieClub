@@ -5,11 +5,13 @@ import org.testng.annotations.*;
 import pl.mmazur.movieclub.factory.PlaywrightFactory;
 import pl.mmazur.movieclub.pages.HomePage;
 import pl.mmazur.movieclub.pages.LoginPage;
+import pl.mmazur.movieclub.pages.RegisterPage;
 
 public class BaseTest {
     protected Page page;
     protected HomePage hp;
     protected LoginPage lp;
+    protected RegisterPage rp;
     PlaywrightFactory play;
 
 
@@ -21,6 +23,7 @@ public class BaseTest {
         page = play.getPage(appURL, browserType);
         hp = new HomePage(page);
         lp = new LoginPage(page);
+        rp = new RegisterPage(page);
     }
 
     @AfterClass

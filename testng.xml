@@ -18,4 +18,12 @@
         </classes>
     </test>
 
+    <test name="RegisterPageTests">
+        <parameter name="appURL" value="http://localhost:8080/rejestracja"/>
+        <parameter name="browserType" value="chrome"/>
+        <classes>
+            <class name="pl.mmazur.movieclub.testcases.RegisterPageTests"/>
+        </classes>
+    </test>
+
 </suite> <!-- Suite -->

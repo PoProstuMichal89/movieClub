@@ -74,7 +74,7 @@ public class LoginPageTests extends BaseTest {
         String url = page.url();
         Assert.assertEquals(title, "Zarejestruj się | MovieClub");
         Assert.assertEquals(url, "http://localhost:8080/rejestracja");
-        lp.clickLoginButton();
+//        lp.clickLoginButton();
     }
 
 }
